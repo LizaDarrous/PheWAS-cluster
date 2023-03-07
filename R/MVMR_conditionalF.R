@@ -1,6 +1,9 @@
 #### 5b) Running MVMR on traits that have survived the stepwise MVMR, have a significant uni-MR effect on outcome, 
 #### and provide the main exposure a conditional F-stat > 8
 
+## Repurposed from bGWAS package: https://github.com/n-mounier/bGWAS/blob/master/R/makeMR_ZMatrix.R and 
+## https://github.com/n-mounier/bGWAS/blob/master/R/identify_StudiesMR.R
+
 library(data.table)
 library(tidyverse)
 library("readxl")
