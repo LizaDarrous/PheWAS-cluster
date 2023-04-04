@@ -10,9 +10,9 @@ library(ggrepel)
 # variable set-up
 EXP_pheno = "21001"
 
-res_dir = paste0("/data/sgg3/liza/TraitCorr/pheWAS/",EXP_pheno)
+res_dir = paste0("/data/sgg3/liza/TraitCorr/pheWAS/",EXP_pheno) # NEED TO CHANGE TO WD
 hail_gcorr_dir = "/data/sgg3/liza/TraitCorr/pheWAS/data/Hail_AllxAll.csv"
-fpaths_fil_dir = paste0(res_dir,"/data/fpaths_fil_nfil.txt")
+fpaths_fil_dir = paste0(res_dir,"/fpaths_fil_nfil.txt")
 setwd(res_dir)
 exp_gcorr_thresh = 0.75
 
@@ -107,8 +107,8 @@ for(i in 1:nrow(stdBeta_df_noEXP)){ #1:i SNPs
   }
 }
 
-tstat_pval_df = pnorm(tstat_dif)  # larger than on BMI
-tstat_thresh = 0.05/dim(trait_info_noEXP)[1] # future: threshold ought to be nSNPs* nIndp.traits
+tstat_pval_df = pnorm(tstat_dif)  # larger than on EXP
+tstat_thresh = 0.05/dim(trait_info_noEXP)[1] # accuracy: divided by nSNPs* nIndp.traits
 tstat_dif = as.data.frame(tstat_dif)
 colnames(tstat_dif) = colnames(stdBeta_df_noEXP)
 rownames(tstat_dif) = rownames(stdBeta_df_noEXP)
