@@ -41,6 +41,10 @@ Please download the `working-example` folder and set it as your working director
       _There are several outputs from this script including plots for the AIC score of cluster numbers ranging from 2 to 50, SNP allocation into various clusters, MR estimates for the various clusters in .csv and .pdf format. Top 10 enriched traits for each cluster are also output in both .csv and .pdf format._
     
  - `Hail_AllxAll.csv` is a data frame containing the genetic and phenotypic correlation of multiple UKBB traits, downloaded from Neale's lab [here](https://ukbb-rg.hail.is/rg_browser/) in October 2021. 
-    
-    
+
+------------ 
+This analysis was run entirely on _R version 4.2.2 (2022-10-31_ as well as _R version 4.1.3 (2022-03-10)_.  
+Analysis run time takes on average 15 minutes.
+
+Secondary analysis is provided as non-custom scripts (systematic confounder search using MR followed by MVMR), that can be modified to include proper paths for analysis. 
     
