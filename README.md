@@ -37,7 +37,7 @@ Please download the `working-example` folder and set it as your working director
     
       Lastly, an enrichment ratio is calculated for each trait across all the clusters, and then the top 10 enriched traits for each cluster are written into an output file. 
       
-      There are several outputs from this script including plots for the AIC score of cluster numbers ranging from 2 to 50, SNP allocation into various clusters, MR estimates for the various clusters in .csv and .pdf format. Top 10 enriched traits for each cluster are also output in both .csv and .pdf format. 
+      _There are several outputs from this script including plots for the AIC score of cluster numbers ranging from 2 to 50, SNP allocation into various clusters, MR estimates for the various clusters in .csv and .pdf format. Top 10 enriched traits for each cluster are also output in both .csv and .pdf format._
     
  - `Hail_AllxAll.csv` is a data frame containing the genetic and phenotypic correlation of multiple UKBB traits, downloaded from Neale's lab [here](https://ukbb-rg.hail.is/rg_browser/) in October 2021. 
     
