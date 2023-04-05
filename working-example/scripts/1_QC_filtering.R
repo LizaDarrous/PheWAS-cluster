@@ -4,8 +4,8 @@ library(dplyr)
 library(ggplot2)
 library(ggrepel)
 
-## having obtained the top SNPs associated with BMI (genome-wide signficance), and ran phewas on them to get their effects on all UKBB traits we have.
-## Data inputs needed: unstanderdised association matrix between IV and traits, SE matrix of association matrix, t-stat matrix of association matrix, P-value matrix of association matrix, trait info (trait, description, sample size)
+## having obtained the top SNPs associated with EXP (genome-wide signficance), and ran PheWAS to get their effects on all UKBB traits we have (filtered for small sample size), we proceed to quality control.
+## Data inputs needed: unstanderdised association matrix between IV and traits, SE matrix of association matrix, t-stat matrix of association matrix, P-value matrix of association matrix, trait info (trait, description, sample size), file path of traots for duplicate trait filtering
 
 # variable set-up
 EXP_pheno = "21001"
@@ -107,8 +107,8 @@ for(i in 1:nrow(stdBeta_df_noEXP)){ #1:i SNPs
   }
 }
 
-tstat_pval_df = pnorm(tstat_dif)  # larger than on BMI
-tstat_thresh = 0.05/dim(trait_info_noEXP)[1] # future: threshold ought to be nSNPs* nIndp.traits
+tstat_pval_df = pnorm(tstat_dif)  # larger than on EXP
+tstat_thresh = 0.05/dim(trait_info_noEXP)[1] # accuracy: divided by nSNPs* nIndp.traits
 tstat_dif = as.data.frame(tstat_dif)
 colnames(tstat_dif) = colnames(stdBeta_df_noEXP)
 rownames(tstat_dif) = rownames(stdBeta_df_noEXP)
