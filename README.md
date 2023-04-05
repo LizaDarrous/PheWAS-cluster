@@ -25,7 +25,8 @@ Please download the `working-example` folder and set it as your working director
     - `sig-clumped-IVs_21001.csv` contains the genome-wide significant and clumped BMI SNPs/IVs used for the TwoSampleMR causal effect estimate using all SNPs and the various clustered SNPs. The columns needed/included are: SNP, variant, beta, se, pval.exposure, effect_allele, other_allele, chr, tstat, N.
     - `clumped-IVs_845.csv` contains the effects of the same BMI SNPs/IVs but for the outcome of interest, in this case it is **EDU** (Age completed full time education). The columns needed/included are: SNP, variant, beta, se, pval, effect_allele, other_allele, chr, tstat, N.
     
-- **scripts**: this subfolder has 2 main scripts numbered in order of use. These are: 
+- **scripts**: this subfolder has 2 main scripts numbered in order of use. In both of these scripts, the `# variable set-up` section in the begining should be updated to include the correct path for the `working-example` directory in the variable `res_dir`.  
+    The scripts are: 
     - `1_QC_filtering.R` This script reads in `unstdBeta_df.csv`, `unstdSE_df.csv`, `tstat_df.csv`, `pval_df.csv`, `trait_info_nfil.csv`, and `fpaths_fil_nfil.txt` from the **data** subfolder. It then proceeds to filter out traits that have NA effects, duplicate traits (specifically exposure), traits with an exposure-genetic correlation > 0.75 (can be changed).
     
       The remaining SNP-trait effect matrix is then standardised, and SNPs are further removed if they are more strongly associated with traits other than the exposure.
