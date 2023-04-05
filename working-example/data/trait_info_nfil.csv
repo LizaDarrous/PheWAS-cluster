@@ -1,0 +1,463 @@
+"phenotype","n_complete_samples","description","variable_type","source","n_non_missing","n_missing","n_controls","n_cases","n_eff"
+"1687",NA,"Comparative body size at age 10","ordinal","phesant",354996,6198,NA,NA,354996
+"1697",NA,"Comparative height size at age 10","ordinal","phesant",355331,5863,NA,NA,355331
+"1717",NA,"Skin colour","ordinal","phesant",356530,4664,NA,NA,356530
+"20015_irnt",NA,"Sitting height","continuous_irnt","phesant",360066,1128,NA,NA,360066
+"21001_irnt",NA,"Body mass index (BMI)","continuous_irnt","phesant",359983,1211,NA,NA,359983
+"21002_irnt",NA,"Weight","continuous_irnt","phesant",360116,1078,NA,NA,360116
+"2306",NA,"Weight change compared with 1 year ago","ordinal","phesant",355129,6065,NA,NA,355129
+"23098_irnt",NA,"Weight","continuous_irnt","phesant",354838,6356,NA,NA,354838
+"23099_irnt",NA,"Body fat percentage","continuous_irnt","phesant",354628,6566,NA,NA,354628
+"23100_irnt",NA,"Whole body fat mass","continuous_irnt","phesant",354244,6950,NA,NA,354244
+"23101_irnt",NA,"Whole body fat-free mass","continuous_irnt","phesant",354808,6386,NA,NA,354808
+"23102_irnt",NA,"Whole body water mass","continuous_irnt","phesant",354834,6360,NA,NA,354834
+"23104_irnt",NA,"Body mass index (BMI)","continuous_irnt","phesant",354831,6363,NA,NA,354831
+"23105_irnt",NA,"Basal metabolic rate","continuous_irnt","phesant",354825,6369,NA,NA,354825
+"23106_irnt",NA,"Impedance of whole body","continuous_irnt","phesant",354795,6399,NA,NA,354795
+"23107_irnt",NA,"Impedance of leg (right)","continuous_irnt","phesant",354817,6377,NA,NA,354817
+"23108_irnt",NA,"Impedance of leg (left)","continuous_irnt","phesant",354811,6383,NA,NA,354811
+"23109_irnt",NA,"Impedance of arm (right)","continuous_irnt","phesant",354792,6402,NA,NA,354792
+"23110_irnt",NA,"Impedance of arm (left)","continuous_irnt","phesant",354807,6387,NA,NA,354807
+"23111_irnt",NA,"Leg fat percentage (right)","continuous_irnt","phesant",354811,6383,NA,NA,354811
+"23112_irnt",NA,"Leg fat mass (right)","continuous_irnt","phesant",354807,6387,NA,NA,354807
+"23113_irnt",NA,"Leg fat-free mass (right)","continuous_irnt","phesant",354798,6396,NA,NA,354798
+"23114_irnt",NA,"Leg predicted mass (right)","continuous_irnt","phesant",354798,6396,NA,NA,354798
+"23115_irnt",NA,"Leg fat percentage (left)","continuous_irnt","phesant",354791,6403,NA,NA,354791
+"23116_irnt",NA,"Leg fat mass (left)","continuous_irnt","phesant",354788,6406,NA,NA,354788
+"23117_irnt",NA,"Leg fat-free mass (left)","continuous_irnt","phesant",354771,6423,NA,NA,354771
+"23118_irnt",NA,"Leg predicted mass (left)","continuous_irnt","phesant",354766,6428,NA,NA,354766
+"23119_irnt",NA,"Arm fat percentage (right)","continuous_irnt","phesant",354760,6434,NA,NA,354760
+"23120_irnt",NA,"Arm fat mass (right)","continuous_irnt","phesant",354736,6458,NA,NA,354736
+"23121_irnt",NA,"Arm fat-free mass (right)","continuous_irnt","phesant",354732,6462,NA,NA,354732
+"23122_irnt",NA,"Arm predicted mass (right)","continuous_irnt","phesant",354726,6468,NA,NA,354726
+"23123_irnt",NA,"Arm fat percentage (left)","continuous_irnt","phesant",354707,6487,NA,NA,354707
+"23124_irnt",NA,"Arm fat mass (left)","continuous_irnt","phesant",354673,6521,NA,NA,354673
+"23125_irnt",NA,"Arm fat-free mass (left)","continuous_irnt","phesant",354668,6526,NA,NA,354668
+"23126_irnt",NA,"Arm predicted mass (left)","continuous_irnt","phesant",354653,6541,NA,NA,354653
+"23127_irnt",NA,"Trunk fat percentage","continuous_irnt","phesant",354619,6575,NA,NA,354619
+"23128_irnt",NA,"Trunk fat mass","continuous_irnt","phesant",354597,6597,NA,NA,354597
+"23129_irnt",NA,"Trunk fat-free mass","continuous_irnt","phesant",354530,6664,NA,NA,354530
+"23130_irnt",NA,"Trunk predicted mass","continuous_irnt","phesant",354494,6700,NA,NA,354494
+"46_irnt",NA,"Hand grip strength (left)","continuous_irnt","phesant",359704,1490,NA,NA,359704
+"47_irnt",NA,"Hand grip strength (right)","continuous_irnt","phesant",359729,1465,NA,NA,359729
+"48_irnt",NA,"Waist circumference","continuous_irnt","phesant",360564,630,NA,NA,360564
+"49_irnt",NA,"Hip circumference","continuous_irnt","phesant",360521,673,NA,NA,360521
+"50_irnt",NA,"Standing height","continuous_irnt","phesant",360388,806,NA,NA,360388
+"100001_irnt",NA,"Food weight","continuous_irnt","phesant",51453,309741,NA,NA,51453
+"100002_irnt",NA,"Energy","continuous_irnt","phesant",51453,309741,NA,NA,51453
+"100003_irnt",NA,"Protein","continuous_irnt","phesant",51453,309741,NA,NA,51453
+"100004_irnt",NA,"Fat","continuous_irnt","phesant",51453,309741,NA,NA,51453
+"100005_irnt",NA,"Carbohydrate","continuous_irnt","phesant",51453,309741,NA,NA,51453
+"100006_irnt",NA,"Saturated fat","continuous_irnt","phesant",51453,309741,NA,NA,51453
+"100007_irnt",NA,"Polyunsaturated fat","continuous_irnt","phesant",51453,309741,NA,NA,51453
+"100008_irnt",NA,"Total sugars","continuous_irnt","phesant",51453,309741,NA,NA,51453
+"100009_irnt",NA,"Englyst dietary fibre","continuous_irnt","phesant",51453,309741,NA,NA,51453
+"100011_irnt",NA,"Iron","continuous_irnt","phesant",51453,309741,NA,NA,51453
+"100012_irnt",NA,"Vitamin B6","continuous_irnt","phesant",51453,309741,NA,NA,51453
+"100013_irnt",NA,"Vitamin B12","continuous_irnt","phesant",51453,309741,NA,NA,51453
+"100014_irnt",NA,"Folate","continuous_irnt","phesant",51453,309741,NA,NA,51453
+"100015_irnt",NA,"Vitamin C","continuous_irnt","phesant",51453,309741,NA,NA,51453
+"100016_irnt",NA,"Potassium","continuous_irnt","phesant",51453,309741,NA,NA,51453
+"100017_irnt",NA,"Magnesium","continuous_irnt","phesant",51453,309741,NA,NA,51453
+"100019_irnt",NA,"Carotene","continuous_irnt","phesant",51453,309741,NA,NA,51453
+"100021_irnt",NA,"Vitamin D","continuous_irnt","phesant",51453,309741,NA,NA,51453
+"100022",NA,"Alcohol","ordinal","phesant",51453,309741,NA,NA,51453
+"100023_irnt",NA,"Starch","continuous_irnt","phesant",51453,309741,NA,NA,51453
+"100024_irnt",NA,"Calcium","continuous_irnt","phesant",51453,309741,NA,NA,51453
+"100025_irnt",NA,"Vitamin E","continuous_irnt","phesant",51453,309741,NA,NA,51453
+"100150",NA,"Drinking water intake","ordinal","phesant",51427,309767,NA,NA,51427
+"100160",NA,"Low calorie drink intake","ordinal","phesant",51427,309767,NA,NA,51427
+"100190",NA,"Orange juice intake","ordinal","phesant",51414,309780,NA,NA,51414
+"100250",NA,"Instant coffee intake","ordinal","phesant",51427,309767,NA,NA,51427
+"100270",NA,"Filtered coffee intake","ordinal","phesant",51427,309767,NA,NA,51427
+"100370",NA,"Intake of sugar added to coffee","ordinal","phesant",51427,309767,NA,NA,51427
+"100400",NA,"Standard tea intake","ordinal","phesant",51427,309767,NA,NA,51427
+"100580",NA,"Alcohol consumed","binary","phesant",51427,309767,25991,25436,51421.0104419857
+"100590",NA,"Red wine intake","ordinal","phesant",51427,309767,NA,NA,51427
+"100630",NA,"Rose wine intake","ordinal","phesant",51427,309767,NA,NA,51427
+"100670",NA,"White wine intake","ordinal","phesant",51427,309767,NA,NA,51427
+"100710",NA,"Beer/cider intake","ordinal","phesant",51427,309767,NA,NA,51427
+"100720",NA,"Fortified wine intake","ordinal","phesant",51416,309778,NA,NA,51416
+"100730",NA,"Spirits intake","ordinal","phesant",51427,309767,NA,NA,51427
+"100890",NA,"Milk added to cereal","binary","phesant",51427,309767,28917,22510,50628.7879907442
+"102190",NA,"Cake intake","ordinal","phesant",51427,309767,NA,NA,51427
+"102250",NA,"Sweet snack consumers","binary","phesant",51427,309767,23524,27903,51054.1289206059
+"102280",NA,"Milk chocolate intake","ordinal","phesant",51425,309769,NA,NA,51425
+"102290",NA,"Dark chocolate intake","ordinal","phesant",51416,309778,NA,NA,51416
+"102360",NA,"Sweet biscuits intake","ordinal","phesant",51427,309767,NA,NA,51427
+"102440",NA,"Unsalted nuts intake","ordinal","phesant",51427,309767,NA,NA,51427
+"102460",NA,"Crisp intake","ordinal","phesant",51427,309767,NA,NA,51427
+"102800",NA,"Cheese consumers","binary","phesant",51427,309767,28182,23245,50953.0472319988
+"102820",NA,"Hard cheese intake","ordinal","phesant",51427,309767,NA,NA,51427
+"102830",NA,"Soft cheese intake","ordinal","phesant",51427,309767,NA,NA,51427
+"102840",NA,"Blue cheese intake","ordinal","phesant",51422,309772,NA,NA,51422
+"103020",NA,"Beef intake","ordinal","phesant",51422,309772,NA,NA,51422
+"103060",NA,"Poultry intake","ordinal","phesant",51422,309772,NA,NA,51422
+"103070",NA,"Bacon intake","ordinal","phesant",51427,309767,NA,NA,51427
+"104020",NA,"Fried potatoes intake","ordinal","phesant",51427,309767,NA,NA,51427
+"104090",NA,"Side salad intake","ordinal","phesant",51427,309767,NA,NA,51427
+"104170",NA,"Carrot intake","ordinal","phesant",51427,309767,NA,NA,51427
+"104210",NA,"Cucumber intake","ordinal","phesant",51427,309767,NA,NA,51427
+"104240",NA,"Lettuce intake","ordinal","phesant",51427,309767,NA,NA,51427
+"104290",NA,"Sweet pepper intake","ordinal","phesant",51427,309767,NA,NA,51427
+"104340",NA,"Fresh tomato intake","ordinal","phesant",51427,309767,NA,NA,51427
+"104450",NA,"Apple intake","ordinal","phesant",51427,309767,NA,NA,51427
+"104460",NA,"Banana intake","ordinal","phesant",51427,309767,NA,NA,51427
+"104530",NA,"Orange intake","ordinal","phesant",51427,309767,NA,NA,51427
+"1289",NA,"Cooked vegetable intake","ordinal","phesant",350404,10790,NA,NA,350404
+"1299",NA,"Salad / raw vegetable intake","ordinal","phesant",339601,21593,NA,NA,339601
+"1309",NA,"Fresh fruit intake","ordinal","phesant",348284,12910,NA,NA,348284
+"1319",NA,"Dried fruit intake","ordinal","phesant",329134,32060,NA,NA,329134
+"1329",NA,"Oily fish intake","ordinal","phesant",359340,1854,NA,NA,359340
+"1339",NA,"Non-oily fish intake","ordinal","phesant",359682,1512,NA,NA,359682
+"1349",NA,"Processed meat intake","ordinal","phesant",360468,726,NA,NA,360468
+"1359",NA,"Poultry intake","ordinal","phesant",360390,804,NA,NA,360390
+"1369",NA,"Beef intake","ordinal","phesant",359784,1410,NA,NA,359784
+"1379",NA,"Lamb/mutton intake","ordinal","phesant",359002,2192,NA,NA,359002
+"1389",NA,"Pork intake","ordinal","phesant",359115,2079,NA,NA,359115
+"1408",NA,"Cheese intake","ordinal","phesant",352458,8736,NA,NA,352458
+"1418_1",NA,"Milk type used: Full cream","binary","phesant",360806,388,337904,22902,85793.2230395282
+"1418_2",NA,"Milk type used: Semi-skimmed","binary","phesant",360806,388,125936,234870,327916.812026408
+"1418_3",NA,"Milk type used: Skimmed","binary","phesant",360806,388,286719,74087,235496.644213234
+"1418_4",NA,"Milk type used: Soya","binary","phesant",360806,388,347659,13147,50671.8056019024
+"1428_0",NA,"Spread type: Never/rarely use spread","binary","phesant",360291,903,323712,36579,131461.082824717
+"1428_1",NA,"Spread type: Butter/spreadable butter","binary","phesant",360291,903,229101,131190,333683.163775948
+"1428_3",NA,"Spread type: Other type of spread/margarine","binary","phesant",360291,903,169698,190593,359079.198914211
+"1438_irnt",NA,"Bread intake","continuous_irnt","phesant",353030,8164,NA,NA,353030
+"1448_1",NA,"Bread type: White","binary","phesant",348424,12770,256972,91452,269793.164007072
+"1448_2",NA,"Bread type: Brown","binary","phesant",348424,12770,306906,41518,146282.957637821
+"1448_3",NA,"Bread type: Wholemeal or wholegrain","binary","phesant",348424,12770,147411,201013,340177.798808348
+"1448_4",NA,"Bread type: Other type of bread","binary","phesant",348424,12770,333983,14441,55369.8769659955
+"1458",NA,"Cereal intake","ordinal","phesant",345019,16175,NA,NA,345019
+"1468_1",NA,"Cereal type: Bran cereal (e.g. All Bran, Branflakes)","binary","phesant",299898,61296,249289,50609,168274.106542891
+"1468_2",NA,"Cereal type: Biscuit cereal (e.g. Weetabix)","binary","phesant",299898,61296,246588,53310,175334.364083788
+"1468_3",NA,"Cereal type: Oat cereal (e.g. Ready Brek, porridge)","binary","phesant",299898,61296,223547,76351,227651.228044202
+"1468_4",NA,"Cereal type: Muesli","binary","phesant",299898,61296,238375,61523,195607.108083415
+"1468_5",NA,"Cereal type: Other (e.g. Cornflakes, Frosties)","binary","phesant",299898,61296,241793,58105,187388.809061748
+"1478",NA,"Salt added to food","ordinal","phesant",360954,240,NA,NA,360954
+"1488_irnt",NA,"Tea intake","continuous_irnt","phesant",349376,11818,NA,NA,349376
+"1498",NA,"Coffee intake","ordinal","phesant",334659,26535,NA,NA,334659
+"1508_1",NA,"Coffee type: Decaffeinated coffee (any type)","binary","phesant",283449,77745,228139,55310,178068.973113329
+"1508_2",NA,"Coffee type: Instant coffee","binary","phesant",283449,77745,125063,158386,279531.461645658
+"1508_3",NA,"Coffee type: Ground coffee (include espresso, filter etc)","binary","phesant",283449,77745,218487,64962,200294.973614301
+"1528",NA,"Water intake","ordinal","phesant",333363,27831,NA,NA,333363
+"1538_0",NA,"Major dietary changes in the last 5 years: No","binary","phesant",360294,900,138926,221368,341429.729809544
+"1538_2",NA,"Major dietary changes in the last 5 years: Yes, because of other reasons","binary","phesant",360294,900,259419,100875,290528.197805126
+"1548",NA,"Variation in diet","ordinal","phesant",359752,1442,NA,NA,359752
+"20077",NA,"Number of diet questionnaires completed","ordinal","phesant",156401,204793,NA,NA,156401
+"2654_2",NA,"Non-butter spread type details: Flora Pro-Active or Benecol","binary","phesant",190094,171100,161046,29048,98436.8619314655
+"2654_4",NA,"Non-butter spread type details: Soft (tub) margarine","binary","phesant",190094,171100,166469,23625,82755.481498627
+"2654_6",NA,"Non-butter spread type details: Olive oil based spread (eg: Bertolli)","binary","phesant",190094,171100,143064,47030,141578.3753301
+"2654_7",NA,"Non-butter spread type details: Polyunsaturated/sunflower oil based spread (eg: Flora)","binary","phesant",190094,171100,125769,64325,170233.482908456
+"2654_8",NA,"Non-butter spread type details: Other low or reduced fat spread","binary","phesant",190094,171100,171059,19035,68515.7462097699
+"30030_irnt",NA,"Haematocrit percentage","continuous_irnt","phesant",350475,10719,NA,NA,350475
+"6144_4",NA,"Never eat eggs, dairy, wheat, sugar: Sugar or foods/drinks containing sugar","binary","phesant",359777,1417,292485,67292,218823.333564958
+"6144_5",NA,"Never eat eggs, dairy, wheat, sugar: I eat all of the above","binary","phesant",359777,1417,81615,278162,252402.923255239
+"6155_100",NA,"Vitamin and mineral supplements: None of the above","binary","phesant",359245,1949,112464,246781,309025.633024816
+"6155_2",NA,"Vitamin and mineral supplements: Vitamin B","binary","phesant",359245,1949,344453,14792,56731.743250428
+"6155_3",NA,"Vitamin and mineral supplements: Vitamin C","binary","phesant",359245,1949,328295,30950,113134.270483932
+"6155_4",NA,"Vitamin and mineral supplements: Vitamin D","binary","phesant",359245,1949,345558,13687,52662.1369371877
+"6155_7",NA,"Vitamin and mineral supplements: Multivitamins +/- minerals","binary","phesant",359245,1949,281773,77472,243059.949126641
+"6179_1",NA,"Mineral and other dietary supplements: Fish oil (including cod liver oil)","binary","phesant",360016,1178,245885,114131,311798.37490556
+"6179_100",NA,"Mineral and other dietary supplements: None of the above","binary","phesant",360016,1178,155206,204810,353181.423714502
+"6179_2",NA,"Mineral and other dietary supplements: Glucosamine","binary","phesant",360016,1178,289798,70218,226090.351139949
+"6179_3",NA,"Mineral and other dietary supplements: Calcium","binary","phesant",360016,1178,335990,24026,89690.410870628
+"6179_4",NA,"Mineral and other dietary supplements: Zinc","binary","phesant",360016,1178,345614,14402,55303.4623794498
+"102_irnt",NA,"Pulse rate, automated reading","continuous_irnt","phesant",340162,21032,NA,NA,340162
+"137",NA,"Number of treatments/medications taken","ordinal","phesant",361141,53,NA,NA,361141
+"1677",NA,"Breastfed as a baby","binary","phesant",273743,87451,79905,193838,226323.601187976
+"1797",NA,"Father still alive","binary","phesant",351538,9656,270309,81229,249838.4784689
+"1835",NA,"Mother still alive","binary","phesant",355029,6165,214783,140246,339380.237873526
+"1980",NA,"Worrier / anxious feelings","binary","phesant",351833,9361,152370,199463,345529.581477576
+"20003_1140868226",NA,"Treatment/medication code: aspirin","binary","phesant",361141,53,313060,48081,166718.681733727
+"20003_1140909674",NA,"Treatment/medication code: cod liver oil capsule","binary","phesant",361141,53,340107,21034,79235.6518700452
+"20003_1141188442",NA,"Treatment/medication code: glucosamine product","binary","phesant",361141,53,336928,24213,90358.4767611542
+"20003_1193",NA,"Treatment/medication code: omega-3/fish oil supplement","binary","phesant",361141,53,347452,13689,52680.4813410828
+"20003_2038460150",NA,"Treatment/medication code: paracetamol","binary","phesant",361141,53,294794,66347,216632.257406387
+"20128",NA,"Number of fluid intelligence questions attempted within time limit","ordinal","phesant",117131,244063,NA,NA,117131
+"20150_irnt",NA,"Forced expiratory volume in 1-second (FEV1), Best measure","continuous_irnt","phesant",272338,88856,NA,NA,272338
+"20151_irnt",NA,"Forced vital capacity (FVC), Best measure","continuous_irnt","phesant",272338,88856,NA,NA,272338
+"20153_irnt",NA,"Forced expiratory volume in 1-second (FEV1), predicted","continuous_irnt","phesant",117241,243953,NA,NA,117241
+"20154_irnt",NA,"Forced expiratory volume in 1-second (FEV1), predicted percentage","continuous_irnt","phesant",117241,243953,NA,NA,117241
+"2050",NA,"Frequency of depressed mood in last 2 weeks","ordinal","phesant",345957,15237,NA,NA,345957
+"2080",NA,"Frequency of tiredness / lethargy in last 2 weeks","ordinal","phesant",350580,10614,NA,NA,350580
+"2178",NA,"Overall health rating","ordinal","phesant",359681,1513,NA,NA,359681
+"2207",NA,"Wears glasses or contact lenses","binary","phesant",360677,517,38909,321768,138846.348527907
+"2492",NA,"Taking other prescription medications","binary","phesant",360027,1167,191034,168993,358677.640976927
+"2714",NA,"Age when periods started (menarche)","ordinal","phesant",188644,172550,NA,NA,188644
+"2966_irnt",NA,"Age high blood pressure diagnosed","continuous_irnt","phesant",87024,274170,NA,NA,87024
+"30000_irnt",NA,"White blood cell (leukocyte) count","continuous_irnt","phesant",350470,10724,NA,NA,350470
+"30010_irnt",NA,"Red blood cell (erythrocyte) count","continuous_irnt","phesant",350475,10719,NA,NA,350475
+"30020_irnt",NA,"Haemoglobin concentration","continuous_irnt","phesant",350474,10720,NA,NA,350474
+"30040_irnt",NA,"Mean corpuscular volume","continuous_irnt","phesant",350473,10721,NA,NA,350473
+"30050_irnt",NA,"Mean corpuscular haemoglobin","continuous_irnt","phesant",350472,10722,NA,NA,350472
+"30060_irnt",NA,"Mean corpuscular haemoglobin concentration","continuous_irnt","phesant",350468,10726,NA,NA,350468
+"30070_irnt",NA,"Red blood cell (erythrocyte) distribution width","continuous_irnt","phesant",350473,10721,NA,NA,350473
+"30080_irnt",NA,"Platelet count","continuous_irnt","phesant",350474,10720,NA,NA,350474
+"30090_irnt",NA,"Platelet crit","continuous_irnt","phesant",350471,10723,NA,NA,350471
+"30100_irnt",NA,"Mean platelet (thrombocyte) volume","continuous_irnt","phesant",350470,10724,NA,NA,350470
+"30110_irnt",NA,"Platelet distribution width","continuous_irnt","phesant",350470,10724,NA,NA,350470
+"30120_irnt",NA,"Lymphocyte count","continuous_irnt","phesant",349856,11338,NA,NA,349856
+"30130_irnt",NA,"Monocyte count","continuous_irnt","phesant",349856,11338,NA,NA,349856
+"30140_irnt",NA,"Neutrophill count","continuous_irnt","phesant",349856,11338,NA,NA,349856
+"30150",NA,"Eosinophill count","ordinal","phesant",349856,11338,NA,NA,349856
+"30160",NA,"Basophill count","ordinal","phesant",349856,11338,NA,NA,349856
+"30170",NA,"Nucleated red blood cell count","ordinal","phesant",349848,11346,NA,NA,349848
+"30180_irnt",NA,"Lymphocyte percentage","continuous_irnt","phesant",349861,11333,NA,NA,349861
+"30190_irnt",NA,"Monocyte percentage","continuous_irnt","phesant",349861,11333,NA,NA,349861
+"30200_irnt",NA,"Neutrophill percentage","continuous_irnt","phesant",349861,11333,NA,NA,349861
+"30210_irnt",NA,"Eosinophill percentage","continuous_irnt","phesant",349861,11333,NA,NA,349861
+"30220_irnt",NA,"Basophill percentage","continuous_irnt","phesant",349861,11333,NA,NA,349861
+"30230",NA,"Nucleated red blood cell percentage","ordinal","phesant",349845,11349,NA,NA,349845
+"30240_irnt",NA,"Reticulocyte percentage","continuous_irnt","phesant",344728,16466,NA,NA,344728
+"30250_irnt",NA,"Reticulocyte count","continuous_irnt","phesant",344729,16465,NA,NA,344729
+"30260_irnt",NA,"Mean reticulocyte volume","continuous_irnt","phesant",344728,16466,NA,NA,344728
+"30270_irnt",NA,"Mean sphered cell volume","continuous_irnt","phesant",344729,16465,NA,NA,344729
+"30280_irnt",NA,"Immature reticulocyte fraction","continuous_irnt","phesant",344728,16466,NA,NA,344728
+"30290_irnt",NA,"High light scatter reticulocyte percentage","continuous_irnt","phesant",344729,16465,NA,NA,344729
+"30300_irnt",NA,"High light scatter reticulocyte count","continuous_irnt","phesant",344729,16465,NA,NA,344729
+"30510_irnt",NA,"Creatinine (enzymatic) in urine","continuous_irnt","phesant",350812,10382,NA,NA,350812
+"30520_irnt",NA,"Potassium in urine","continuous_irnt","phesant",350053,11141,NA,NA,350053
+"30530_irnt",NA,"Sodium in urine","continuous_irnt","phesant",350061,11133,NA,NA,350061
+"30600_irnt",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"30610_irnt",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"3062_irnt",NA,"Forced vital capacity (FVC)","continuous_irnt","phesant",329404,31790,NA,NA,329404
+"30620_irnt",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"3063_irnt",NA,"Forced expiratory volume in 1-second (FEV1)","continuous_irnt","phesant",329404,31790,NA,NA,329404
+"30630_irnt",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"30650_irnt",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"30660_irnt",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"30670_irnt",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"30680_irnt",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"30690_irnt",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"30700_irnt",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"30710_irnt",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"30720_irnt",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"30730_irnt",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"30740_irnt",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"30750_irnt",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"30760_irnt",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"30770_irnt",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"30780_irnt",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"30790_irnt",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"30800_irnt",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"30810_irnt",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"30820_irnt",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"30830_irnt",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"30840_irnt",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"30850_irnt",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"30860_irnt",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"30870_irnt",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"30880_irnt",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"30890_irnt",NA,NA,NA,NA,NA,NA,NA,NA,NA
+"4079_irnt",NA,"Diastolic blood pressure, automated reading","continuous_irnt","phesant",340162,21032,NA,NA,340162
+"4080_irnt",NA,"Systolic blood pressure, automated reading","continuous_irnt","phesant",340159,21035,NA,NA,340159
+"5983_irnt",NA,"ECG, heart rate","continuous_irnt","phesant",53777,307417,NA,NA,53777
+"6033_irnt",NA,"Maximum heart rate during fitness test","continuous_irnt","phesant",53984,307210,NA,NA,53984
+"6147_1",NA,"Reason for glasses/contact lenses: For short-sightedness, i.e. only or mainly for distance viewing such as driving, cinema etc (called 'myopia')","binary","phesant",360677,517,331359,29318,107739.425158799
+"6147_1",NA,"Reason for glasses/contact lenses: For short-sightedness, i.e. only or mainly for distance viewing such as driving, cinema etc (called 'myopia')","binary","phesant",360677,517,331359,29318,107739.425158799
+"6147_2",NA,"Reason for glasses/contact lenses: For long-sightedness, i.e. for distance and near, but particularly for near tasks like reading (called 'hypermetropia')","binary","phesant",360677,517,345586,15091,57838.3243289702
+"6147_2",NA,"Reason for glasses/contact lenses: For long-sightedness, i.e. for distance and near, but particularly for near tasks like reading (called 'hypermetropia')","binary","phesant",360677,517,345586,15091,57838.3243289702
+"6147_3",NA,"Reason for glasses/contact lenses: For just reading/near work as you are getting older (called 'presbyopia')","binary","phesant",360677,517,329181,31496,114982.488775275
+"6147_3",NA,"Reason for glasses/contact lenses: For just reading/near work as you are getting older (called 'presbyopia')","binary","phesant",360677,517,329181,31496,114982.488775275
+"6148_100",NA,"Eye problems/disorders: None of the above","binary","phesant",117890,243304,25949,91941,80949.2580880482
+"6154_1",NA,"Medication for pain relief, constipation, heartburn: Aspirin","binary","phesant",357084,4110,306880,50204,172582.401003685
+"6154_100",NA,"Medication for pain relief, constipation, heartburn: None of the above","binary","phesant",357084,4110,159041,198043,352824.061150878
+"6154_2",NA,"Medication for pain relief, constipation, heartburn: Ibuprofen (e.g. Nurofen)","binary","phesant",357084,4110,304035,53049,180671.805121484
+"6154_3",NA,"Medication for pain relief, constipation, heartburn: Paracetamol","binary","phesant",357084,4110,279148,77936,243703.76189356
+"20002_1065",NA,"Non-cancer illness code, self-reported: hypertension","binary","phesant",361141,53,267581,93560,277286.471045935
+"20002_1111",NA,"Non-cancer illness code, self-reported: asthma","binary","phesant",361141,53,319207,41934,148259.281975738
+"20002_1138",NA,"Non-cancer illness code, self-reported: gastro-oesophageal reflux (gord) / gastric reflux","binary","phesant",361141,53,345931,15210,58277.6312852875
+"20002_1220",NA,"Non-cancer illness code, self-reported: diabetes","binary","phesant",361141,53,347027,14114,54249.604204452
+"20002_1226",NA,"Non-cancer illness code, self-reported: hypothyroidism/myxoedema","binary","phesant",361141,53,343567,17574,66875.2255545618
+"20002_1286",NA,"Non-cancer illness code, self-reported: depression","binary","phesant",361141,53,340493,20648,77869.8565269521
+"20002_1387",NA,"Non-cancer illness code, self-reported: hayfever/allergic rhinitis","binary","phesant",361141,53,340474,20667,77937.1620281275
+"20002_1465",NA,"Non-cancer illness code, self-reported: osteoarthritis","binary","phesant",361141,53,331095,30046,110185.001093756
+"20002_1473",NA,"Non-cancer illness code, self-reported: high cholesterol","binary","phesant",361141,53,317184,43957,154426.742884358
+"20002_99999",NA,"Non-cancer illness code, self-reported: unclassifiable","binary","phesant",361141,53,346544,14597,56028.0086503609
+"ASTHMA_MEDICATIO_COMORB",NA,"Medication related adverse effects","categorical","finngen",361194,0,341100,20094,75904.510041695
+"C_SKIN",NA,NA,"categorical","finngen",361194,0,344663,16531,63097.6600165008
+"C3_OTHER_SKIN",NA,"Other malignant neoplasms of skin","categorical","finngen",361194,0,346792,14402,55310.9784104941
+"C3_SKIN",NA,"Malignant neoplasm of skin","categorical","finngen",361194,0,344663,16531,63097.6600165008
+"COPD_EXCL",NA,"COPD differential diagnosis","categorical","finngen",361194,0,334484,26710,98939.2696445677
+"H7_LENS",NA,"Disorders of lens","categorical","finngen",361194,0,344118,17076,65074.8237013904
+"I9_CORATHER",NA,"Coronary atherosclerosis","categorical","finngen",361194,0,346860,14334,55060.6182826957
+"I9_IHD",NA,"Ischaemic heart disease, wide definition","categorical","finngen",361194,0,340337,20857,78610.4842162384
+"ICDMAIN_ANY_ENTRY",NA,"Any ICDMAIN event in hilmo or causes of death","categorical","finngen",361194,0,79185,282009,247300.704496752
+"II_NEOPLASM",NA,"Neoplasms","categorical","finngen",361194,0,291016,70178,226171.208248199
+"ILD_DIFF_DG",NA,"ILD differential diagnosis","categorical","finngen",361194,0,334484,26710,98939.2696445677
+"IX_CIRCULATORY",NA,"Diseases of the circulatory system","categorical","finngen",361194,0,300690,60504,201475.636472367
+"K11_GALLBILPANC",NA,"Disorders of gallbladder, biliary tract and pancreas","categorical","finngen",361194,0,347272,13922,53541.540379962
+"K11_HERNIA",NA,"Hernia","categorical","finngen",361194,0,334997,26197,97187.8426441192
+"M13_ARTHROSIS",NA,"#Arthrosis","categorical","finngen",361194,0,336217,24977,92999.2415045654
+"M13_OTHERJOINT",NA,"#Other joint disorders","categorical","finngen",361194,0,333847,27347,101105.930984457
+"PULM_MEDICATIO_COMORB",NA,"Medication related adverse effects (Asthma/COPD)","categorical","finngen",361194,0,339488,21706,81606.3005254794
+"PULMONARYDG",NA,"Other pulmonary diagnosis","categorical","finngen",361194,0,335813,25381,94389.9372968543
+"VI_NERVOUS",NA,"Diseases of the nervous system","categorical","finngen",361194,0,339871,21323,80256.8075106452
+"VII_EYE_ADNEXA",NA,"Diseases of the eye and adnexa","categorical","finngen",361194,0,331316,29878,109625.956665947
+"X_RESPIRATORY",NA,"Diseases of the respiratory system","categorical","finngen",361194,0,335813,25381,94389.9372968543
+"XI_DIGESTIVE",NA,"Diseases of the digestive system","categorical","finngen",361194,0,245301,115893,314829.911825778
+"XII_SKIN_SUBCUTAN",NA,"Diseases of the skin and subcutaneous tissue","categorical","finngen",361194,0,334120,27074,100178.462322187
+"XIII_MUSCULOSKELET",NA,"Diseases of the musculoskeletal system and connective tissue","categorical","finngen",361194,0,284095,77099,242567.046019591
+"XIV_GENITOURINARY",NA,"Diseases of the genitourinary system","categorical","finngen",361194,0,289574,71620,229674.799470645
+"XIX_INJURY_POISON",NA,"Injury, poisoning and certain other consequences of external causes","categorical","finngen",361194,0,316398,44796,156961.243077128
+"XVIII_MISCFINDINGS",NA,"Symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified","categorical","finngen",361194,0,263592,97602,284911.780195684
+"XXI_HEALTHFACTORS",NA,"Factors influencing health status and contact with health services","categorical","finngen",361194,0,315247,45947,160408.577207816
+"1011",NA,"Frequency of light DIY in last 4 weeks","ordinal","phesant",180494,180700,NA,NA,180494
+"1021",NA,"Duration of light DIY","ordinal","phesant",179548,181646,NA,NA,179548
+"104900",NA,"Time spent doing vigorous physical activity","ordinal","phesant",51427,309767,NA,NA,51427
+"104910",NA,"Time spent doing moderate physical activity","ordinal","phesant",51427,309767,NA,NA,51427
+"1050",NA,"Time spend outdoors in summer","ordinal","phesant",327717,33477,NA,NA,327717
+"1060",NA,"Time spent outdoors in winter","ordinal","phesant",284889,76305,NA,NA,284889
+"1070",NA,"Time spent watching television (TV)","ordinal","phesant",341859,19335,NA,NA,341859
+"1080",NA,"Time spent using computer","ordinal","phesant",280750,80444,NA,NA,280750
+"1090",NA,"Time spent driving","ordinal","phesant",241357,119837,NA,NA,241357
+"1100",NA,"Drive faster than motorway speed limit","ordinal","phesant",327192,34002,NA,NA,327192
+"1110",NA,"Length of mobile phone use","ordinal","phesant",356618,4576,NA,NA,356618
+"1120",NA,"Weekly usage of mobile phone in last 3 months","ordinal","phesant",301157,60037,NA,NA,301157
+"1130",NA,"Hands-free device/speakerphone use with mobile phone in last 3 month","ordinal","phesant",302733,58461,NA,NA,302733
+"1160",NA,"Sleep duration","ordinal","phesant",359020,2174,NA,NA,359020
+"1180",NA,"Morning/evening person (chronotype)","ordinal","phesant",322488,38706,NA,NA,322488
+"1190",NA,"Nap during day","ordinal","phesant",360855,339,NA,NA,360855
+"1200",NA,"Sleeplessness / insomnia","ordinal","phesant",360738,456,NA,NA,360738
+"1210",NA,"Snoring","binary","phesant",336320,24874,210664,125656,314833.439391056
+"1220",NA,"Daytime dozing / sleeping (narcolepsy)","ordinal","phesant",359752,1442,NA,NA,359752
+"1239",NA,"Current tobacco smoking","ordinal","phesant",360797,397,NA,NA,360797
+"1249",NA,"Past tobacco smoking","ordinal","phesant",332141,29053,NA,NA,332141
+"1259",NA,"Smoking/smokers in household","ordinal","phesant",332573,28621,NA,NA,332573
+"1269",NA,"Exposure to tobacco smoke at home","ordinal","phesant",326676,34518,NA,NA,326676
+"1279",NA,"Exposure to tobacco smoke outside home","ordinal","phesant",306191,55003,NA,NA,306191
+"129_irnt",NA,"Place of birth in UK - north co-ordinate","continuous_irnt","phesant",338701,22493,NA,NA,338701
+"129_irnt",NA,"Place of birth in UK - north co-ordinate","continuous_irnt","phesant",338701,22493,NA,NA,338701
+"130_irnt",NA,"Place of birth in UK - east co-ordinate","continuous_irnt","phesant",338701,22493,NA,NA,338701
+"130_irnt",NA,"Place of birth in UK - east co-ordinate","continuous_irnt","phesant",338701,22493,NA,NA,338701
+"1558",NA,"Alcohol intake frequency.","ordinal","phesant",360726,468,NA,NA,360726
+"1568",NA,"Average weekly red wine intake","ordinal","phesant",257773,103421,NA,NA,257773
+"1578",NA,"Average weekly champagne plus white wine intake","ordinal","phesant",257623,103571,NA,NA,257623
+"1588",NA,"Average weekly beer plus cider intake","ordinal","phesant",258256,102938,NA,NA,258256
+"1598",NA,"Average weekly spirits intake","ordinal","phesant",257426,103768,NA,NA,257426
+"1608",NA,"Average weekly fortified wine intake","ordinal","phesant",258191,103003,NA,NA,258191
+"1618",NA,"Alcohol usually taken with meals","binary","phesant",184716,176478,59552,125164,161410.306156478
+"1628",NA,"Alcohol intake versus 10 years previously","ordinal","phesant",334989,26205,NA,NA,334989
+"1787",NA,"Maternal smoking around birth","binary","phesant",309942,51252,214760,95182,263807.89076666
+"189_irnt",NA,"Townsend deprivation index at recruitment","continuous_irnt","phesant",360763,431,NA,NA,360763
+"20016_irnt",NA,"Fluid intelligence score","continuous_irnt","phesant",117131,244063,NA,NA,117131
+"20023_irnt",NA,"Mean time to correctly identify matches","continuous_irnt","phesant",358695,2499,NA,NA,358695
+"20116_0",NA,"Smoking status: Never","binary","phesant",359706,1488,164638,195068,357131.717391425
+"20116_1",NA,"Smoking status: Previous","binary","phesant",359706,1488,232156,127550,329285.558761878
+"20116_2",NA,"Smoking status: Current","binary","phesant",359706,1488,322618,37088,133055.95551923
+"20117_2",NA,"Alcohol drinker status: Current","binary","phesant",360726,468,23807,336919,88943.1938146959
+"20160",NA,"Ever smoked","binary","phesant",359751,1443,141560,218191,343427.737073698
+"2149",NA,"Lifetime number of sexual partners","ordinal","phesant",296609,64585,NA,NA,296609
+"2237",NA,"Plays computer games","ordinal","phesant",360817,377,NA,NA,360817
+"22506_113",NA,"Tobacco smoking: Ex-smoker","binary","phesant",91353,269841,58018,33335,84683.81027443
+"22506_114",NA,"Tobacco smoking: Never smoked","binary","phesant",91353,269841,36833,54520,87928.591726599
+"22702_irnt",NA,"Home location - east co-ordinate (rounded)","continuous_irnt","phesant",361187,7,NA,NA,361187
+"22704_irnt",NA,"Home location - north co-ordinate (rounded)","continuous_irnt","phesant",361187,7,NA,NA,361187
+"2277",NA,"Frequency of solarium/sunlamp use","ordinal","phesant",340643,20551,NA,NA,340643
+"24003_irnt",NA,"Nitrogen dioxide air pollution; 2010","continuous_irnt","phesant",356078,5116,NA,NA,356078
+"24004_irnt",NA,"Nitrogen oxides air pollution; 2010","continuous_irnt","phesant",356078,5116,NA,NA,356078
+"24005_irnt",NA,"Particulate matter air pollution (pm10); 2010","continuous_irnt","phesant",329886,31308,NA,NA,329886
+"24006_irnt",NA,"Particulate matter air pollution (pm2.5); 2010","continuous_irnt","phesant",329886,31308,NA,NA,329886
+"24007_irnt",NA,"Particulate matter air pollution (pm2.5) absorbance; 2010","continuous_irnt","phesant",329886,31308,NA,NA,329886
+"24008_irnt",NA,"Particulate matter air pollution 2.5-10um; 2010","continuous_irnt","phesant",329886,31308,NA,NA,329886
+"24009",NA,"Traffic intensity on the nearest road","ordinal","phesant",356078,5116,NA,NA,356078
+"24010_irnt",NA,"Inverse distance to the nearest road","continuous_irnt","phesant",356078,5116,NA,NA,356078
+"24011_irnt",NA,"Traffic intensity on the nearest major road","continuous_irnt","phesant",356078,5116,NA,NA,356078
+"24012_irnt",NA,"Inverse distance to the nearest major road","continuous_irnt","phesant",356078,5116,NA,NA,356078
+"24013",NA,"Total traffic load on major roads","ordinal","phesant",356078,5116,NA,NA,356078
+"24014",NA,"Close to major road","binary","phesant",356078,5116,331522,24556,91450.2354203292
+"24015",NA,"Sum of road length of major roads within 100m","ordinal","phesant",356078,5116,NA,NA,356078
+"24016_irnt",NA,"Nitrogen dioxide air pollution; 2005","continuous_irnt","phesant",356078,5116,NA,NA,356078
+"24017_irnt",NA,"Nitrogen dioxide air pollution; 2006","continuous_irnt","phesant",356078,5116,NA,NA,356078
+"24018_irnt",NA,"Nitrogen dioxide air pollution; 2007","continuous_irnt","phesant",356078,5116,NA,NA,356078
+"24019_irnt",NA,"Particulate matter air pollution (pm10); 2007","continuous_irnt","phesant",355245,5949,NA,NA,355245
+"24020_irnt",NA,"Average daytime sound level of noise pollution","continuous_irnt","phesant",356078,5116,NA,NA,356078
+"24021_irnt",NA,"Average evening sound level of noise pollution","continuous_irnt","phesant",356078,5116,NA,NA,356078
+"24022_irnt",NA,"Average night-time sound level of noise pollution","continuous_irnt","phesant",356078,5116,NA,NA,356078
+"24023_irnt",NA,"Average 16-hour sound level of noise pollution","continuous_irnt","phesant",356078,5116,NA,NA,356078
+"24024_irnt",NA,"Average 24-hour sound level of noise pollution","continuous_irnt","phesant",356078,5116,NA,NA,356078
+"2624",NA,"Frequency of heavy DIY in last 4 weeks","ordinal","phesant",145190,216004,NA,NA,145190
+"2634",NA,"Duration of heavy DIY","ordinal","phesant",145373,215821,NA,NA,145373
+"2644",NA,"Light smokers, at least 100 smokes in lifetime","binary","phesant",97021,264173,52768,44253,96273.6852434009
+"2664_3",NA,"Reason for reducing amount of alcohol drunk: Health precaution","binary","phesant",134033,227161,90165,43868,118041.324748383
+"2664_5",NA,"Reason for reducing amount of alcohol drunk: Other reason","binary","phesant",134033,227161,63424,70609,133647.839442525
+"2867_irnt",NA,"Age started smoking in former smokers","continuous_irnt","phesant",88898,272296,NA,NA,88898
+"2887",NA,"Number of cigarettes previously smoked daily","ordinal","phesant",84456,276738,NA,NA,84456
+"2907",NA,"Ever stopped smoking for 6+ months","binary","phesant",87937,273257,50034,37903,86263.5160171486
+"2926",NA,"Number of unsuccessful stop-smoking attempts","ordinal","phesant",81026,280168,NA,NA,81026
+"2936",NA,"Likelihood of resuming smoking","ordinal","phesant",87233,273961,NA,NA,87233
+"3637",NA,"Frequency of other exercises in last 4 weeks","ordinal","phesant",172505,188689,NA,NA,172505
+"3647",NA,"Duration of other exercises","ordinal","phesant",172650,188544,NA,NA,172650
+"400_irnt",NA,"Time to complete round","continuous_irnt","phesant",354739,6455,NA,NA,354739
+"404_irnt",NA,"Duration to first press of snap-button in each round","continuous_irnt","phesant",358500,2694,NA,NA,358500
+"4288_irnt",NA,"Time to answer","continuous_irnt","phesant",119729,241465,NA,NA,119729
+"4290_irnt",NA,"Duration screen displayed","continuous_irnt","phesant",119729,241465,NA,NA,119729
+"4526",NA,"Happiness","ordinal","phesant",119535,241659,NA,NA,119535
+"4537",NA,"Work/job satisfaction","ordinal","phesant",82190,279004,NA,NA,82190
+"4559",NA,"Family relationship satisfaction","ordinal","phesant",118818,242376,NA,NA,118818
+"4570",NA,"Friendships satisfaction","ordinal","phesant",118649,242545,NA,NA,118649
+"4581",NA,"Financial situation satisfaction","ordinal","phesant",119394,241800,NA,NA,119394
+"4674",NA,"Private healthcare","ordinal","phesant",119300,241894,NA,NA,119300
+"4957",NA,"FI3 : word interpolation","binary","phesant",116815,244379,18062,98753,61076.9742242007
+"5364",NA,"Average weekly intake of other alcoholic drinks","ordinal","phesant",85420,275774,NA,NA,85420
+"6138_1",NA,"Qualifications: College or University degree","binary","phesant",357549,3645,241568,115981,313437.29903314
+"6138_100",NA,"Qualifications: None of the above","binary","phesant",357549,3645,296456,61093,202617.1115903
+"6138_2",NA,"Qualifications: A levels/AS levels or equivalent","binary","phesant",357549,3645,259245,98304,285105.767097657
+"6138_3",NA,"Qualifications: O levels/GCSEs or equivalent","binary","phesant",357549,3645,188877,168672,356407.22076135
+"6138_4",NA,"Qualifications: CSEs or equivalent","binary","phesant",357549,3645,310877,46672,162319.025856596
+"6138_6",NA,"Qualifications: Other professional qualifications eg: nursing, teaching","binary","phesant",357549,3645,253308,104241,295400.957384862
+"6141_1",NA,"How are people in household related to participant: Husband, wife or partner","binary","phesant",358963,2231,93225,265738,276055.471455275
+"6141_1",NA,"How are people in household related to participant: Husband, wife or partner","binary","phesant",358963,2231,93225,265738,276055.471455275
+"6141_2",NA,"How are people in household related to participant: Son and/or daughter (include step-children)","binary","phesant",358963,2231,237892,121071,320944.747308218
+"6141_2",NA,"How are people in household related to participant: Son and/or daughter (include step-children)","binary","phesant",358963,2231,237892,121071,320944.747308218
+"6142_1",NA,"Current employment status: In paid employment or self-employed","binary","phesant",359931,1263,154782,205149,352882.8860865
+"6142_2",NA,"Current employment status: Retired","binary","phesant",359931,1263,227000,132931,335345.796833282
+"6142_4",NA,"Current employment status: Unable to work because of sickness or disability","binary","phesant",359931,1263,346175,13756,52921.0687604013
+"6142_6",NA,"Current employment status: Doing unpaid or voluntary work","binary","phesant",359931,1263,346623,13308,51263.8131641898
+"6143_1",NA,"Transport type for commuting to job workplace: Car/motor vehicle","binary","phesant",190832,170362,38351,152481,122574.805713926
+"6143_3",NA,"Transport type for commuting to job workplace: Public transport","binary","phesant",190832,170362,151177,39655,125658.672235265
+"6143_4",NA,"Transport type for commuting to job workplace: Cycle","binary","phesant",190832,170362,175947,14885,54895.8475517733
+"6145_100",NA,"Illness, injury, bereavement, stress in last 2 years: None of the above","binary","phesant",358836,2358,156985,201851,353226.312131447
+"6145_3",NA,"Illness, injury, bereavement, stress in last 2 years: Death of a close relative","binary","phesant",358836,2358,283531,75305,238006.24190438
+"6145_6",NA,"Illness, injury, bereavement, stress in last 2 years: Financial difficulties","binary","phesant",358836,2358,318166,40670,144242.06289224
+"6157_3",NA,"Why stopped smoking: Health precaution","binary","phesant",88516,272678,32853,55663,82638.0107099281
+"6157_4",NA,"Why stopped smoking: Financial reasons","binary","phesant",88516,272678,66863,21653,65424.7611279317
+"6160_1",NA,"Leisure/social activities: Sports club or gym","binary","phesant",360063,1131,251590,108473,303177.18921411
+"6160_100",NA,"Leisure/social activities: None of the above","binary","phesant",360063,1131,251359,108704,303543.865779044
+"6160_2",NA,"Leisure/social activities: Pub or social club","binary","phesant",360063,1131,261564,98499,286214.272902242
+"6160_3",NA,"Leisure/social activities: Religious group","binary","phesant",360063,1131,307366,52697,179938.134182074
+"6160_4",NA,"Leisure/social activities: Adult education class","binary","phesant",360063,1131,334221,25842,95949.1986902292
+"6160_5",NA,"Leisure/social activities: Other group activity","binary","phesant",360063,1131,279885,80178,249296.590096733
+"6162_1",NA,"Types of transport used (excluding work): Car/motor vehicle","binary","phesant",359324,1870,73865,285459,234723.3030357
+"6162_2",NA,"Types of transport used (excluding work): Walk","binary","phesant",359324,1870,182390,176934,359241.155725752
+"6162_3",NA,"Types of transport used (excluding work): Public transport","binary","phesant",359324,1870,251597,107727,301719.785140987
+"6162_4",NA,"Types of transport used (excluding work): Cycle","binary","phesant",359324,1870,333265,26059,96676.5663857688
+"6164_1",NA,"Types of physical activity in last 4 weeks: Walking for pleasure (not as a means of transport)","binary","phesant",359263,1931,100689,258574,289877.415553508
+"6164_100",NA,"Types of physical activity in last 4 weeks: None of the above","binary","phesant",359263,1931,338008,21255,79989.9799311368
+"6164_2",NA,"Types of physical activity in last 4 weeks: Other exercises (eg: swimming, cycling, keep fit, bowling)","binary","phesant",359263,1931,185021,174242,358939.59669657
+"6164_3",NA,"Types of physical activity in last 4 weeks: Strenuous sports","binary","phesant",359263,1931,321966,37297,133700.001414006
+"699_irnt",NA,"Length of time at current address","continuous_irnt","phesant",352690,8504,NA,NA,352690
+"709",NA,"Number in household","ordinal","phesant",358963,2231,NA,NA,358963
+"738",NA,"Average total household income before tax","ordinal","phesant",311028,50166,NA,NA,311028
+"757_irnt",NA,"Time employed in main current job","continuous_irnt","phesant",194087,167107,NA,NA,194087
+"767_irnt",NA,"Length of working week for main job","continuous_irnt","phesant",202304,158890,NA,NA,202304
+"777",NA,"Frequency of travelling from home to job workplace","ordinal","phesant",201267,159927,NA,NA,201267
+"777",NA,"Frequency of travelling from home to job workplace","ordinal","phesant",201267,159927,NA,NA,201267
+"796_irnt",NA,"Distance between home and job workplace","continuous_irnt","phesant",173061,188133,NA,NA,173061
+"806",NA,"Job involves mainly walking or standing","ordinal","phesant",204956,156238,NA,NA,204956
+"816",NA,"Job involves heavy manual or physical work","ordinal","phesant",205000,156194,NA,NA,205000
+"826",NA,"Job involves shift work","ordinal","phesant",204783,156411,NA,NA,204783
+"845",NA,"Age completed full time education","ordinal","phesant",240547,120647,NA,NA,240547
+"864",NA,"Number of days/week walked 10+ minutes","ordinal","phesant",355030,6164,NA,NA,355030
+"874_irnt",NA,"Duration of walks","continuous_irnt","phesant",308989,52205,NA,NA,308989
+"884",NA,"Number of days/week of moderate physical activity 10+ minutes","ordinal","phesant",343943,17251,NA,NA,343943
+"894",NA,"Duration of moderate activity","ordinal","phesant",268826,92368,NA,NA,268826
+"904",NA,"Number of days/week of vigorous physical activity 10+ minutes","ordinal","phesant",344084,17110,NA,NA,344084
+"914_irnt",NA,"Duration of vigorous activity","continuous_irnt","phesant",196758,164436,NA,NA,196758
+"924",NA,"Usual walking pace","ordinal","phesant",358974,2220,NA,NA,358974
+"943",NA,"Frequency of stair climbing in last 4 weeks","ordinal","phesant",357720,3474,NA,NA,357720
+"971",NA,"Frequency of walking for pleasure in last 4 weeks","ordinal","phesant",257478,103716,NA,NA,257478
+"981",NA,"Duration walking for pleasure","ordinal","phesant",257330,103864,NA,NA,257330
+"1807_irnt",NA,"Father's age at death","continuous_irnt","phesant",266231,94963,NA,NA,266231
+"3526_irnt",NA,"Mother's age at death","continuous_irnt","phesant",213636,147558,NA,NA,213636
