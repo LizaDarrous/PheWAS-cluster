@@ -10,12 +10,12 @@ library(TwoSampleMR)
 # variable set-up
 EXP_pheno = "21001"
 OUT_pheno = "845"
-res_dir = "~/Desktop/UNIL/TraitCorr/PheWAS/R_trial/"
+res_dir = "~/working-example"
 setwd(res_dir)
 
 # cochran's Qtest >>>>
-q.meta.test = function(b_x, se_x){  #https://cjvanlissa.github.io/Doing-Meta-Analysis-in-R/heterogeneity-statistics.html
-  se_x[which(se_x==0)]=1  ### check!
+q.meta.test = function(b_x, se_x){
+  se_x[which(se_x==0)]=1
   w0 = se_x^-2
   w = w0/sum(w0)
   
@@ -37,7 +37,6 @@ eff_dfs = t(scale(t(eff_df)))
 
 # Fitting K-Means clustering Model 
 kmeansIC = function(fit){
-  #https://stackoverflow.com/questions/15839774/how-to-calculate-bic-for-k-means-clustering-in-r
   m = ncol(fit$centers)
   n = length(fit$cluster)
   k = nrow(fit$centers)
