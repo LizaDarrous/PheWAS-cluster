@@ -1,4 +1,4 @@
-## Systematic search for potential confounders/colliders/mediators acting on EXP-OUT
+## 4) Systematic search for potential confounders/colliders/mediators acting on EXP-OUT
 library(data.table)
 library(TwoSampleMR)
 library(lhcMR)
