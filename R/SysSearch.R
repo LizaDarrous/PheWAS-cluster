@@ -1,5 +1,5 @@
-### Systematic search for confounders/colliders/mediators
-## needs 35 GBs of space on the server - needs to run on master node, clumping will never be done otherwise (Z-matrix)
+### Systematic search for confounders
+## needs 35 GBs of space on the server
 library(data.table)
 library(dplyr)
 library(purrr)
@@ -7,9 +7,7 @@ library(ggplot2)
 library(ggforce)
 library(ggrepel)
 library(writexl)
-library(xlsx)
 library(TwoSampleMR)
-
 
 #variables
 EXP_pheno = "21001" #for grepl purposes, do a check to make sure not a lot of traits in trait_info start with this
@@ -143,14 +141,15 @@ colliderTraits = colliderTraits[which(colliderTraits$EXPonpval<bi_MR_thresh & co
 confounderTraits = confounderTraits[which(confounderTraits$onEXPpval<bi_MR_thresh & confounderTraits$onOUTpval<bi_MR_thresh),]
 mediatorTraits = mediatorTraits[which(mediatorTraits$EXPonpval<bi_MR_thresh & mediatorTraits$onOUTpval<bi_MR_thresh),]
 
-write.xlsx(colliderTraits, file=paste0(res_dir,"/",EXP_pheno,"-",OUT_pheno,"_MR_TraitSearch_3groups.xlsx"), sheetName="Collider", row.names=FALSE)
-write.xlsx(confounderTraits, file=paste0(res_dir,"/",EXP_pheno,"-",OUT_pheno,"_MR_TraitSearch_3groups.xlsx"), sheetName="Confounder", append=TRUE, row.names=FALSE)
-write.xlsx(mediatorTraits, file=paste0(res_dir,"/",EXP_pheno,"-",OUT_pheno,"_MR_TraitSearch_3groups.xlsx"), sheetName="Mediator", append=TRUE, row.names=FALSE)
-
+write_xlsx(list(
+  "Collider" = as.data.frame(colliderTraits),
+  "Confounder" = as.data.frame(confounderTraits),
+  "Mediator" = as.data.frame(mediatorTraits)
+), path = paste0(res_dir,"/",EXP_pheno,"-",OUT_pheno,"_MR_TraitSearch_3groups.xlsx"))
 
 ## testing stepwise-MVMR using bGWAS. Need to prepare files (Zmatrix)
 MVMR_dir = paste0("/MVMR_",EXP_pheno,"-",OUT_pheno)
-traits_MVMR = unique(c(colliderTraits$Phenotype,confounderTraits$Phenotype,mediatorTraits$Phenotype))
+traits_MVMR = unique(confounderTraits$Phenotype)
 
 # create AvailableStudies.tsv
 AS = trait_info[trait_info$phenotype %in% c(traits_MVMR,EXP_pheno2,OUT_pheno2) ,c(1,3,5)]
@@ -161,7 +160,7 @@ AS_df = cbind.data.frame("File"=AS$phenotype, "Name"=AS$description, "ID"=1:nrow
 system(paste0("mkdir ", res_dir, MVMR_dir))
 write.table(AS_df, paste0(res_dir, MVMR_dir, "/AvailableStudies.tsv"), row.names = FALSE, sep = "\t")
 
-#get confounder fpaths
+# get confounder fpaths
 mr_fpaths = fread(paste0(res_dir,"/data/mr_fpaths.csv"))
 mr_fpaths = rbind(mr_fpaths, strsplit(EXP_dir,UKBB_root_dir)[[1]][2], use.names=FALSE) # OUT already present
 
@@ -171,23 +170,56 @@ pars <- data.frame(par_exp = par_exps,
 
 mvmr_fpaths = pars[which(pars$par_exp %in% AS_df$File),]
 mvmr_fpaths %>% arrange(match(par_exp, AS_df$File)) %>% select(par_fpaths) -> mvmr_fpaths #rearrange so that they match with AS
-write.csv(mvmr_fpaths, paste0(res_dir,MVMR_dir,"/MVMRfpaths_3groups.csv"), row.names = FALSE)
+write.csv(mvmr_fpaths, paste0(res_dir,MVMR_dir,"/MVMRfpaths_conf.csv"), row.names = FALSE)
 
 # 
-#mvmr_fpaths = fread(paste0(res_dir,MVMR_dir,"/MVMRfpaths_3groups.csv"))
+#mvmr_fpaths = fread(paste0(res_dir,MVMR_dir,"/MVMRfpaths_conf.csv"))
 VARinfo = fread(cmd = " zcat < /data/sgg2/liza/SEM_Real/test/data/variants.tsv.bgz", sep="\t", header=TRUE) ## Variant info file from UKBB GWAS Imputed v3 - File Manifest Release 20180731
 
+## create Z matrix by looping over traits, obtaining their sig SNPs (Z/tstat) and performing an outer join
 setwd(UKBB_root_dir)
-ind1 = unlist(mvmr_fpaths[1])
-f1 = fread(ind1)
+library(stringr)
+Z_thresh_gw = qnorm(0.5*(5E-8), lower.tail=FALSE)
+Z_snps = c()
+for(ind in 1:(nrow(mvmr_fpaths)-1)){ #no outcome trait
+  print(ind)
+  trait_nm = gsub(".gwas.imputed_v3.both_sexes.tsv.gz","",tail(str_split(mvmr_fpaths[ind],"\\/")[[1]],1))
+  f1 = fread(unlist(mvmr_fpaths[ind]))
+  Z_snps = c(Z_snps, unlist(f1[abs(f1$tstat)>Z_thresh_gw, 'variant']))
+}
+length(Z_snps)
+#head(Z_snps)
+Z_matrix = as.data.frame(unique(Z_snps))
+colnames(Z_matrix) = "variant"
 
-# read in first trait file, and clump its SNPs
-f1 = dplyr::inner_join(f1, VARinfo[,c(1:6)])
-f1$chr = as.numeric(f1$chr)
-f1 = f1[!is.na(f1$chr),]
+for(ind in 1:nrow(mvmr_fpaths)){ #adding in outcome trait
+  print(ind)
+  trait_nm = gsub(".gwas.imputed_v3.both_sexes.tsv.gz","",tail(str_split(mvmr_fpaths[ind],"\\/")[[1]],1))
+  f1 = fread(unlist(mvmr_fpaths[ind]))
+  Z_matrix = dplyr::inner_join(Z_matrix,f1[,c('variant','tstat')], by=c("variant"))
+  colnames(Z_matrix)[ncol(Z_matrix)] = trait_nm
+}
+
+write.csv(Z_matrix, paste0(res_dir, MVMR_dir, "/raw_Zmatrix.csv"), row.names = FALSE)
+
+## need to do a rank-based clumping
+# this ranks the absolute Z value (descending order - minus), keeping NAs, and averaging the ranking of duplicate values
+Z_matrix_noOut = Z_matrix[,-ncol(Z_matrix)]
+rank_matrix = sapply(-(abs(Z_matrix_noOut[,-1])), rank, na.last="keep", ties.method = "average")
+# replace NAs with large value, get row rank min and then normalise that
+top_rank = max(rank_matrix, na.rm=T)*ncol(rank_matrix)
+rank_matrix1 = replace(rank_matrix, is.na(rank_matrix), top_rank)
+rank_min_rows = apply(rank_matrix1, 1, min)
+rank_min_pvals = rank_min_rows/max(rank_min_rows)
+dummy_df = cbind.data.frame("variant"=Z_matrix_noOut[,1], "pval"=rank_min_pvals)
+dummy_df = inner_join(dummy_df, VARinfo[,c(1:6)])
+dummy_df$chr = as.numeric(dummy_df$chr)
+dummy_df = dummy_df[!is.na(dummy_df$chr),]
+dim(dummy_df)
+
 # Taken from Jonathan Sulc to create bins that fit a maximum of 50k SNPs (max threshold for clumping)
 snp_bin  =  function( snp_ranks,
-                      chunk_size = 50000 ){
+                      chunk_size = SNP_CHUNK_SIZE ){
   if (nrow( snp_ranks ) == 0) {
     return()
   }
@@ -209,55 +241,39 @@ snp_bin  =  function( snp_ranks,
              snp_bin( snp_ranks[ snp_ranks$chr > max_chr, ],
                       chunk_size ) ) )
 }
+clump_bin = snp_bin(dummy_df,50000)
 
-rm(VARinfo)
-clump_bin = snp_bin(f1,50000)
-f11 = c()
+clumped_sig_snps = c()
 for (x in 1:length(clump_bin)) {
-  temp = f1[f1$rsid %in% clump_bin[[x]]$rsid,]
-  temp1 = ieugwasr::ld_clump(temp, clump_kb = 5000, clump_r2 = 0.01) #updated these to be different than BGWAS's
-  f11=rbind(f11,temp1)
+  temp = dummy_df[dummy_df$rsid %in% clump_bin[[x]]$rsid,]
+  temp1 = ieugwasr::ld_clump(temp, clump_r2 = 0.01, clump_kb = 5000) ##updated these to be different than BGWAS's
+  clumped_sig_snps=rbind(clumped_sig_snps,temp1) # 693
 }
 
-if(x<length(clump_bin)){print("Re-run analysis, ld_clumping was not completed for all chromosomes.")}
+Bmatrix_clumped = matrix(NA, nrow = nrow(clumped_sig_snps), ncol = dim(mvmr_fpaths)[1])
+SEmatrix_clumped = matrix(NA, nrow = nrow(clumped_sig_snps), ncol = dim(mvmr_fpaths)[1])
 
-# remove HLA region
-f11_ind = which(!(f11$chr==6 & f11$pos>=28.5e6 & f11$pos<=33.5e6))
-length(f11_ind)
-f11 = f11[f11_ind,]
-## create empty matrices
-# variant (to join) rs chrm pos alt ref
-matrixZ = cbind.data.frame("variant"=f11$variant, "rs"=f11$rsid, "chrm"=f11$chr, "pos"=f11$pos, "alt"=f11$alt, "ref"=f11$ref, f11$tstat)
-matrixBstd = cbind.data.frame("variant"=f11$variant, "rs"=f11$rsid, "chrm"=f11$chr, "pos"=f11$pos, "alt"=f11$alt, "ref"=f11$ref, f11$tstat/sqrt(f11$n_complete_samples))
-matrixSEstd = cbind.data.frame("variant"=f11$variant, "rs"=f11$rsid, "chrm"=f11$chr, "pos"=f11$pos, "alt"=f11$alt, "ref"=f11$ref, 1/sqrt(f11$n_complete_samples))
-matrixP = cbind.data.frame("variant"=f11$variant, "rs"=f11$rsid, "chrm"=f11$chr, "pos"=f11$pos, "alt"=f11$alt, "ref"=f11$ref, f11$pval)
-
-fname = stringr::str_match(ind1, "/(.*?)\\.")[,2]
-colnames(matrixZ)[ncol(matrixZ)]=fname
-colnames(matrixBstd)[ncol(matrixBstd)]=fname
-colnames(matrixSEstd)[ncol(matrixSEstd)]=fname
-colnames(matrixP)[ncol(matrixP)]=fname
-
-for(ind in 2:nrow(mvmr_fpaths)){
-  f2 = fread(unlist(mvmr_fpaths[ind]))
-  f2_sub = inner_join(matrixZ[,c(1,2)],f2)
-  matrixZ = cbind.data.frame(matrixZ, f2_sub$tstat)
-  matrixBstd = cbind.data.frame(matrixBstd, f2_sub$tstat/sqrt(f2_sub$n_complete_samples))
-  matrixSEstd = cbind.data.frame(matrixSEstd, 1/sqrt(f2_sub$n_complete_samples))
-  matrixP = cbind.data.frame(matrixP, f2_sub$pval)
-  
-  fname = stringr::str_match(unlist(mvmr_fpaths[ind]), "/(.*?)\\.")[,2]
-  colnames(matrixZ)[ncol(matrixZ)]=fname
-  colnames(matrixBstd)[ncol(matrixBstd)]=fname
-  colnames(matrixSEstd)[ncol(matrixSEstd)]=fname
-  colnames(matrixP)[ncol(matrixP)]=fname
+for(ind in 1:nrow(mvmr_fpaths)){
+  print(ind)
+  trait_nm = gsub(".gwas.imputed_v3.both_sexes.tsv.gz","",tail(str_split(mvmr_fpaths[ind],"\\/")[[1]],1))
+  f1 = fread(unlist(mvmr_fpaths[ind]))
+  Bmatrix_clumped[,ind] = f1$tstat[which(f1$variant %in% clumped_sig_snps$variant)] / sqrt(f1$n_complete_samples[which(f1$variant %in% clumped_sig_snps$variant)])  # Z_matrix1
+  SEmatrix_clumped[,ind] = 1/sqrt(f1$n_complete_samples[which(f1$variant %in% clumped_sig_snps$variant)])
+  colnames(Bmatrix_clumped)[ncol(Bmatrix_clumped)] = trait_nm
+  colnames(SEmatrix_clumped)[ncol(SEmatrix_clumped)] = trait_nm
 }
+var_ind = f1[f1$variant %in% clumped_sig_snps$variant, 1]
+rsid_temp = inner_join(var_ind, clumped_sig_snps[,c(1,7)])
 
-write.csv(matrixZ, paste0(res_dir,MVMR_dir,"/clumped_matrixZ.csv"), row.names = FALSE)
-write.csv(matrixBstd, paste0(res_dir,MVMR_dir,"/clumped_matrixBsted.csv"), row.names = FALSE)
-write.csv(matrixSEstd, paste0(res_dir,MVMR_dir,"/clumped_matrixSEstd.csv"), row.names = FALSE)
-write.csv(matrixP, paste0(res_dir,MVMR_dir,"/clumped_matrixP.csv"), row.names = FALSE)
+rownames(Bmatrix_clumped) = rownames(SEmatrix_clumped) = rsid_temp$rsid
+colnames(Bmatrix_clumped) = colnames(SEmatrix_clumped) = colnames(Z_matrix)[-1]
 
+write.csv(Bmatrix_clumped, paste0(res_dir, MVMR_dir, "/Bmatrix_clumped.csv"), row.names = TRUE)
+write.csv(SEmatrix_clumped, paste0(res_dir, MVMR_dir, "/SEmatrix_clumped.csv"), row.names = TRUE)
+
+# clump Zmatrix
+Z_matrix_clumped = inner_join(Z_matrix, clumped_sig_snps, by="variant")
+write.csv(Z_matrix_clumped, paste0(res_dir, MVMR_dir, "/Zmatrix_clumped.csv"), row.names = FALSE)
 
 ## Stepwise-MVMR using clumped SNPs from the Zmatrix - re-purposing bGWAS scripts
 Z_matrices = paste0(res_dir,MVMR_dir)
@@ -315,14 +331,22 @@ generate_Formula <- function(outcome, study_names, with_intercept=F ) {
   return(formula)
 }
 
-# Zmatrix MVMR creation
+## Zmatrix MVMR creation
 setwd(Z_matrices)
-matrixZ_clumped = fread("clumped_matrixZ.csv")
-
-matrixZ_clumped %>% select(c("rs","chrm","pos","alt",'ref',confounderTraits$Phenotype,EXP_pheno2,OUT_pheno2)) -> matrixZ_clumped
+matrixZ_clumped =  Z_matrix_clumped #fread("Zmatrix_clumped.csv")
+matrixZ_clumped %>% 
+  select(c("rsid","chr","pos","alt",'ref',colnames(matrixZ_clumped)[2:(length(traits_MVMR)+3)])) %>% #with outcome at first
+  rename("rs" = "rsid", "chrm"="chr")-> matrixZ_clumped
+## remove HLA region
+dim(matrixZ_clumped)
+HLA_n_ind = which(!(matrixZ_clumped$chrm==6 & matrixZ_clumped$pos>=28.5e6 & matrixZ_clumped$pos<=33.5e6))
+length(HLA_n_ind)
+if(length(HLA_n_ind) > 0) {
+  matrixZ_clumped = matrixZ_clumped[HLA_n_ind,]
+}
 
 Log = c()
-## filter the Z matrix based on the traits kept
+# filter the Z matrix based on the traits kept
 Zlimit = stats::qnorm(MR_threshold/2, lower.tail = F)
 print("# Thresholding... \n")
 # DO NOT USE THE LAST COLUMN - OUTCOME
@@ -330,11 +354,13 @@ matrixZ_clumped %>%
   filter_at(vars(-c(1:5,as.numeric(ncol(matrixZ_clumped)))),
             any_vars(abs(.data$.) > Zlimit)) -> matrixZ_fil
 
-print(paste0("There are ", dim(matrixZ_fil)[1]," IVs significant for at least one trait at the threshold specified."))
+tmp = (paste0("There are ", dim(matrixZ_fil)[1]," IVs significant for at least one trait at the threshold specified."))
+print(tmp)
+Log = update_log(Log, tmp, verbose)
 
 ZMatrix = matrixZ_fil
 ZMatrix %>%
-  select(-c(1:5,as.numeric(ncol(ZMatrix)))) %>% 
+  select(-c(1:5,as.numeric(ncol(ZMatrix)))) %>%  #no outcome
   apply(MARGIN = 2, FUN = function(col){
     sum(abs(col)>Zlimit)>=MR_ninstruments})  -> StudiesToKeep
 
@@ -357,7 +383,7 @@ if(!all(StudiesToKeep)){
     select(-StudiesToRemove) -> ZMatrix
 }
 
-# Further checking of the SNPs to remove SNPs associated with studies removed because only one SNP
+# further checking of the SNPs to remove SNPs associated with studies removed because only one SNP
 ZMatrix %>%
   select(-c(1:5,as.numeric(ncol(ZMatrix)))) %>%
   apply(MARGIN = 1, FUN = function(row){
@@ -368,6 +394,7 @@ if(sum(SNPsToKeep) != NAllStudies){
   ZMatrix %>%
     filter(SNPsToKeep) -> ZMatrix
   tmp = paste0(format(nrow(ZMatrix), big.mark = ",", scientific = F), " SNPs left after removing studies with only one strong instrument \n")
+  print(tmp)
   Log = update_log(Log, tmp, verbose)
 }
 
@@ -384,11 +411,20 @@ push_extreme_zs_back_a_little_towards_zero <- function(d) { # Some z-scores are 
   }
   return(d)
 }
-# Truncate Z-scores
+# Truncate Z-scores -- generally no Zscore is larger than maxAllowed_z = 37.06579
 ZMatrix %>%
   push_extreme_zs_back_a_little_towards_zero() -> ZMatrix_trunc
 
-##shrinkage for ZMatrix
+# Steiger filtering test
+max_Z = apply(abs(ZMatrix_trunc[,-c(1:5)]),1, which.max)
+if(length(which(max_Z==ncol(ZMatrix_trunc[,-c(1:5)]))) > 0){
+  ZMatrix_trunc = ZMatrix_trunc[-which(max_Z==ncol(ZMatrix_trunc[,-c(1:5)])),]
+  tmp = (paste0("There are ", dim(ZMatrix_trunc)[1]," remaining significant IVs that have a larger standerdised effect on the exposures compared to the outcome."))
+  print(tmp)
+  Log = update_log(Log, tmp, verbose)
+}
+
+# try also with shrinkage for ZMatrix
 # Set the z-scores to 0 for the regression if shrinkage
 if(MR_shrinkage < 1.0) {
   names(ZMatrix_trunc)[!names(ZMatrix_trunc) %in% c('rs','chrm','pos','alt','ref', OUT_pheno2 )] -> Prior_study_names
@@ -400,41 +436,51 @@ if(MR_shrinkage < 1.0) {
         TRUE ~ eval(parse(text=paste0('`',column_of_zs,'`'))))) -> ZMatrix_shrunk
   }
   tmp = paste0("Applying shrinkage (threshold = ", MR_shrinkage, ") before performing MR. \n")
+  print(tmp)
   Log = update_log(Log, tmp, verbose)
 }
 
 # save both but mostly working with non-shrunk
-write.csv(ZMatrix_trunc, paste0(Z_matrices,"/ZMatrix_confounder.csv"), row.names = F)
-write.csv(ZMatrix_shrunk, paste0(Z_matrices,"/ZMatrix_confounder-shrunk.csv"), row.names = F)
+write.csv(ZMatrix_trunc, paste0(Z_matrices,"/ZMatrix_filtered.csv"), row.names = F)
+write.csv(ZMatrix_shrunk, paste0(Z_matrices,"/ZMatrix_filtered-shrunk.csv"), row.names = F)
 
-# running stepwise MVMR
+
+## running stepwise MVMR
 source(stepMVMR_R)
 
 # without EXP
 ZMatrix_subset = as.data.frame(ZMatrix_trunc)[, -(which(colnames(ZMatrix_trunc)==EXP_pheno2))]
+pheno_nm = EXP_pheno2
 MVMR_noEXP = identify_studiesMR(ZMatrix_subset, MR_shrinkage, MR_threshold, stepwise_threshold, Z_matrices, save_files=FALSE, verbose=TRUE)
-
-print("The remaining studies from the stepwise MVMR are:")
-cat(c(paste0(paste0("- ", get_names(MVMR_noEXP$studies, Z_matrices)), collapse="\n")))
+Log = c(Log, MVMR_noEXP$log_info)
+tmp = "The remaining studies from the stepwise MVMR are:"
+print(tmp)
+Log = update_log(Log, tmp, verbose)
+tmp = c(paste0(paste0("- ", get_names(MVMR_noEXP$studies, Z_matrices)), collapse="\n"))
+print(tmp)
+Log = update_log(Log, tmp, verbose)
 
 # Adding in the EXP to the remianing studies
 # make a sub ZMatrix
 ZMatrix_trunc %>%
   select(c("rs","chrm","pos","alt",'ref',MVMR_noEXP$studies,EXP_pheno2,OUT_pheno2)) %>%  ## add in EXP and outcome
   get_Instruments(Zlim=Zlimit) -> ZMatrix_subset1
-# UPDATE Z-MATRIX
 myFormula = generate_Formula(OUT_pheno2, c(MVMR_noEXP$studies,EXP_pheno2))
-## RUN MODEL - with studies already included and BMI
+# run model - with studies already included and BMI
 stats::lm(data=ZMatrix_subset1, formula = myFormula) %>%
   summary %>%
   stats::coef() %>%
   as.data.frame() %>% # 1st create a data.frame (to get rownames)
   tibble::rownames_to_column("nm") %>% # then convert to tibble
   as_tibble()  -> MVMR_EXP
-## ADDED NAMING
+# added naming
 MVMR_EXP$nm = gsub('`','',MVMR_EXP$nm)
 MVMR_EXP %>%
   set_names(c("study", "estimate", "std_error", "Tstat", "P")) -> MVMR_EXP
+
+log_info = apply(as.array(Log), 1,function(x) gsub("\n", "", x, fixed=T))
+
+write(log_info, paste0(pheno_nm,"_MVMR.log"))
 
   write_xlsx(list(
     "confounder-noEXP" = as.data.frame(inner_join(MVMR_noEXP$coeffs, trait_info[,c(1,3)], by=c("study"="phenotype"))),
@@ -442,3 +488,101 @@ MVMR_EXP %>%
   ),
   path = paste0(Z_matrices,"/StepwiseMVMR.xlsx"))
 
+
+## Testing for conditional F statistic with EXP
+  
+# checking univ MR on each of the exposures  
+# get the uni_MR from bi_MR ran in stepwise MVMR
+uniMR = fread(paste0(Z_matrices,"/",pheno_nm,"_uniMR.csv"))
+uniMR = uniMR[uniMR$study %in% MVMR_noEXP$studies,]
+uniMR = uniMR[order(uniMR$P),]
+print("The univariate MR estimates in order of signifcance: ")
+uniMR
+  
+# calculating conditional F stat
+stdB_matrix = fread(paste0(Z_matrices,"/Bmatrix_clumped.csv"))
+stdSE_matrix = fread(paste0(Z_matrices,"/SEmatrix_clumped.csv"))
+colnames(stdB_matrix)[1]=colnames(stdSE_matrix)[1] = "rs"
+
+stdB_matrix = stdB_matrix[which(stdB_matrix$rs %in% ZMatrix_subset1$rs),]
+stdSE_matrix = stdSE_matrix[which(stdSE_matrix$rs %in% ZMatrix_subset1$rs),]
+
+res <- Map(combn, list(c(1:nrow(uniMR))), seq_along(c(1:nrow(uniMR))), simplify = FALSE)
+med_comb = unlist(res, recursive = FALSE)
+
+Fstat_arr = c()
+med_arr = c()
+axy_arr = c()
+se_arr = c()
+pval_arr = c()
+MVMR_list = list()
+counter = 1
+for(med in med_comb){
+  med = unlist(med)
+  ZMatrix_subset1 %>%
+    select(c("rs","chrm","pos","alt",'ref',uniMR$study[c(med)],EXP_pheno2,OUT_pheno2)) %>%
+    get_Instruments(Zlim=Zlimit) -> ZMatrix_subset_fcond
+  
+  stdB_matrix1 = stdB_matrix[which(stdB_matrix$rs %in% ZMatrix_subset_fcond$rs),]
+  stdSE_matrix1 = stdSE_matrix[which(stdSE_matrix$rs %in% ZMatrix_subset_fcond$rs),]
+  stdB_matrix1 = stdB_matrix1[complete.cases(stdB_matrix1),]  
+  stdSE_matrix1 = stdSE_matrix1[complete.cases(stdSE_matrix1),]
+  all(stdB_matrix1$rs==stdSE_matrix1$rs)
+
+  stdB_matrix1 %>%
+    select(-c("rs",OUT_pheno2)) %>%
+    select(c(uniMR$study[c(med)], EXP_pheno2))-> X
+  
+  stdSE_matrix1 %>%
+    select(-c("rs",OUT_pheno2)) %>%
+    select(c(uniMR$study[c(med)], EXP_pheno2))-> SE
+  
+  K = ncol(X)-1 # number of mediators
+  L = nrow(X)
+  
+  E = as.vector(unlist(X[,EXP_pheno2]))
+  M = as.matrix(X[,1:(ncol(X)-1)])
+  
+  delta.reg = lm(E ~ -1 + M)
+  delta = delta.reg$coefficients
+  res = delta.reg$residuals
+  
+  delta = as.vector(c(-1,delta))
+  
+  var_IV =  as.matrix(SE**2) %*% (delta**2)
+  
+  Q = sum(1/(var_IV) * res**2)
+  
+  Fstat = Q/(L-K)
+  Fstat_arr=c(Fstat_arr,Fstat)
+  med_arr = c(med_arr,stringr::str_c(uniMR$study[med], collapse="-"))
+  
+  ## caluclate MVMR for that confounder comb
+  myFormula = generate_Formula(OUT_pheno2, c(uniMR$study[c(med)],EXP_pheno2)) 
+  # run model - with studies already included and primary exposure
+  stats::lm(data=ZMatrix_subset_fcond, formula = myFormula) %>%
+    summary %>%
+    stats::coef() %>%
+    as.data.frame() %>% # 1st create a data.frame (to get rownames)
+    tibble::rownames_to_column("nm") %>% # then convert to tibble
+    as_tibble()  -> coefs
+  # added naming
+  coefs$nm = gsub('`','',coefs$nm)
+  coefs %>%
+    set_names(c("study", "estimate", "std_error", "Tstat", "P")) -> coefs
+  res = inner_join(coefs, trait_info[,c(1,3)], by=c("study"="phenotype"))
+  MVMR_list[[counter]]=res
+  
+  axy_arr=c(axy_arr,unlist(res[nrow(res),2]))
+  se_arr=c(se_arr,unlist(res[nrow(res),3]))
+  pval_arr=c(pval_arr,unlist(res[nrow(res),5]))
+  
+  counter = counter + 1
+}
+
+print("Exposure F-stat caluclated for different combinations of confounder traits")
+MVMRcondF_df = cbind.data.frame(med_arr,Fstat_arr,axy_arr,se_arr,pval_arr)
+MVMR_F8 = MVMR_list[which(MVMRcondF_df$Fstat_arr>8)]
+write.csv(MVMRcondF_df, "MVMR_res_condFstat.csv", row.names = FALSE)
+MVMR_F8.df <- do.call("rbind", lapply(MVMR_F8, as.data.frame)) 
+write.csv(MVMR_F8.df, "MVMR_res_condFstatGT8.csv", row.names = FALSE)
