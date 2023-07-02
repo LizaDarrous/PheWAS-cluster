@@ -1,6 +1,6 @@
 ###### Function to identifiy studies significantly affecting trait of interest - multivariable MR ######
 
-
+## Repurposed from bGWAS package: https://github.com/n-mounier/bGWAS/blob/master/R/identify_StudiesMR.R
 
 # #' Identify studies for prior using multivariable MR
 # #'
