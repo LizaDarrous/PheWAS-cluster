@@ -1,6 +1,6 @@
 ###### Function to identifiy studies significantly affecting trait of interest - multivariable MR ######
 
-## Repurposed from bGWAS package: https://github.com/n-mounier/bGWAS/blob/master/R/identify_StudiesMR.R
+
 
 # #' Identify studies for prior using multivariable MR
 # #'
@@ -87,13 +87,27 @@ identify_studiesMR <- function(ZMatrix, MR_shrinkage, MR_threshold, stepwise_thr
     paste('`',my_outcome,'`', ' ~ -1 + `',one_study,'`', sep='', collapse="") -> uni_form
     stats::lm(data=ZMatrix_uni, formula = uni_form) -> uni_fit
     
+    if(sum(uni_fit$residuals)==0){
+      uni_coefs <- data.frame(stats::coef(summary(uni_fit)))
+      uni_coefs %>%
+        tibble::rownames_to_column("nm") -> uni_coefs
+      uni_coefs %>%
+        mutate(adj.r.squared = NA,
+               r.squared = NA,
+               Pr...t.. = 1,
+               nSNPs = nrow(ZMatrix_uni),
+               description = get_names(one_study, Z_matrices)) -> uni_coefs
+    }else{
     uni_coefs <- data.frame(stats::coef(summary(uni_fit)))
     uni_coefs %>%
       tibble::rownames_to_column("nm") -> uni_coefs
     
     uni_coefs %>%
       mutate(adj.r.squared = summary(uni_fit)$adj.r.squared,
-             r.squared = summary(uni_fit)$r.squared) -> uni_coefs
+             r.squared = summary(uni_fit)$r.squared,
+             nSNPs = nrow(ZMatrix_uni),
+             description = get_names(one_study, Z_matrices)) -> uni_coefs
+    }
     all_uni_coefs %>%
       bind_rows(uni_coefs) -> all_uni_coefs
   }
@@ -103,7 +117,8 @@ identify_studiesMR <- function(ZMatrix, MR_shrinkage, MR_threshold, stepwise_thr
   
   all_uni_coefs %>%
     set_names(c("study", "estimate", "std_error", "Tstat", "P",
-                "adj_Rsquared", "Rsquared")) -> all_uni_coefs
+                "adj_Rsquared", "Rsquared","nSNPs","description")) -> all_uni_coefs
+  write.csv(all_uni_coefs, paste0(pheno_nm,"_uniMR.csv"), row.names = FALSE)
   
   if(save_files){ # add univariable coeffs
     order_inFiles = match(all_uni_coefs$study, Files_Info$File)
@@ -146,7 +161,7 @@ identify_studiesMR <- function(ZMatrix, MR_shrinkage, MR_threshold, stepwise_thr
   
   
   # if only one study, no need for stepwise selection
-  if(sum(all_uni_coefs$P<=stepwise_threshold)==1){
+  if(sum(all_uni_coefs$P<=stepwise_threshold, na.rm = TRUE)==1){
     tmp = "Only one study reaching significance, no need for stepwise selection. \n"
     Log = update_log(Log, tmp, verbose)
     
@@ -312,8 +327,10 @@ identify_studiesMR <- function(ZMatrix, MR_shrinkage, MR_threshold, stepwise_thr
       
       ## RUN MODEL
       model_test = stats::lm(data=ZMatrix_test, formula = test_formula) 
+      coef_temp = stats::coef(summary(model_test))
+      rownames(coef_temp) = gsub('`','',rownames(coef_temp))
       
-      PValues[PValues$study==one_to_add,c(2,3)] = c(stats::coef(summary(model_test))[paste0('`',one_to_add,'`'),"Pr(>|t|)"], stats::coef(summary(model_test))[paste0('`',one_to_add,'`'),"Estimate"])
+      PValues[PValues$study==one_to_add,c(2,3)] = c(coef_temp[one_to_add,"Pr(>|t|)"], coef_temp[one_to_add,"Estimate"])
     }
     
     if(any(PValues$P<stepwise_threshold)){
@@ -511,4 +528,3 @@ identify_studiesMR <- function(ZMatrix, MR_shrinkage, MR_threshold, stepwise_thr
            ZMat = ZMatrix_subset)
   return(res)
 }
-
