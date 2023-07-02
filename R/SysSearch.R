@@ -1,4 +1,4 @@
-### Systematic search for confounders
+### 5) Systematic search for confounders of EXP-OUT relationship, stepwise MVMR followed by MVMR with primary exposure andconditional F-stat calculation
 ## needs 35 GBs of space on the server
 library(data.table)
 library(dplyr)
